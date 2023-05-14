@@ -13,6 +13,13 @@ def author(request):
 def issuebooks(request):
     return render(request,'issuebooks.html')
 
+def issuebooks(request):
+    if request.method == "POST":
+        booktitle = request.POST.get('booktitle')
+        authorname = request.POST.get('authorname')
+        ISBN = request.POST.get('ISBN')
+    return render(request,'review')
+
 def landing(request):
     return render(request,'landing.html')
 
@@ -28,17 +35,34 @@ def returnbook(request):
 def review(request):
     return render(request,'review.html')
 
+def review(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        booktitle = request.POST.get('booktitle')
+        review = request.POST.get('review')
+    return render(request,'review')
+
+
 def signin(request):
     return render(request,'signin.html')
 
 def userdashboard(request):
     return render(request,'userdashboard.html')
 
-def index(request):
+def userdashboard(request):
     if request.method == "POST":
-        name = request.POST.get('name')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
         email = request.POST.get('email')
-        phone = request.POST.get('phone')
+    return render(request,'home')
+
+
+def publishbook(request):
+    if request.method == "POST":
+        booktitle = request.POST.get('booktitle')
+        authorname = request.POST.get('authorname')
+        ISBN = request.POST.get('ISBN')
+        publdate = request.POST.get('publdate')
         desc = request.POST.get('desc')
-    return render(request,'home.html')
+    return render(request,'home')
 
