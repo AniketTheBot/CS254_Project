@@ -17,7 +17,7 @@ class BookIssue(models.Model):
     ISBN = models.IntegerField()
 
     def __str__(self) -> str:
-        return self.authorname
+        return self.booktitle
 
 class BookReview(models.Model):
     username = models.CharField(max_length=30)
