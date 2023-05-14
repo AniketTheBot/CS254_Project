@@ -28,6 +28,14 @@ def returnbook(request):
 def review(request):
     return render(request,'review.html')
 
+def review(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        booktitle = request.POST.get('booktitle')
+        review = request.POST.get('review')
+    return render(request,'review.html')
+
+
 def signin(request):
     return render(request,'signin.html')
 
@@ -36,9 +44,10 @@ def userdashboard(request):
 
 def index(request):
     if request.method == "POST":
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        phone = request.POST.get('phone')
+        booktitle = request.POST.get('booktitle')
+        authorname = request.POST.get('authorname')
+        ISBN = request.POST.get('ISBN')
+        publdate = request.POST.get('publdate')
         desc = request.POST.get('desc')
     return render(request,'home.html')
 
