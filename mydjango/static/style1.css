@@ -1,3 +1,13 @@
+body{
+
+  padding: 0px;
+  margin: 0px;
+}
+
+.navabar{
+  background-color: #0d0d0d;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;

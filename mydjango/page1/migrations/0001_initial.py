@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
             name='BookReview',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('username', models.CharField(max_length=30)),
+                ('name', models.CharField(max_length=30)),
                 ('booktitle', models.CharField(max_length=30)),
                 ('review', models.TextField()),
             ],
