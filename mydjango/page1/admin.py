@@ -1,5 +1,5 @@
 from django.contrib import admin
-from page1.models import BookPublish,User,BookIssue,BookReview,Author
+from page1.models import BookPublish,BookIssue,BookReview,Author
 
 
 # Register your models here.
