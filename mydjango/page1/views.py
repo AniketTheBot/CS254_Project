@@ -53,10 +53,14 @@ def review(request):
         name = request.POST.get('name')
         booktitle = request.POST.get('booktitle')
         review = request.POST.get('review')
+<<<<<<< HEAD
         bookreview = BookReview(
             name=name, booktitle=booktitle, review=review, date=datetime.today())
         bookreview.save()
     return render(request, 'review.html')
+=======
+    return render(request,'review.html')
+>>>>>>> 29247c1f3427ab3c4cf3390ead4377f4c5657032
 
 
 def signin(request):
@@ -79,7 +83,6 @@ def publishbook(request):
         booktitle = request.POST.get('booktitle')
         authorname = request.POST.get('authorname')
         ISBN = request.POST.get('ISBN')
-        publdate = request.POST.get('publdate')
         desc = request.POST.get('desc')
         publishbook = BookPublish(booktitle=booktitle, authorname=authorname, ISBN=ISBN, publdate=publdate, desc=desc)
         publishbook.save()

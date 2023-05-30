@@ -37,3 +37,11 @@ class User(models.Model):
     def __str__(self) -> str:
         return self.username
 
+class Author(models.Model):
+    authorname = models.CharField(max_length=30)
+    authorID = models.IntegerField()
+    authoremail = models.EmailField()
+    no_of_works = models.IntegerField()
+
+    def __str__(self) -> str:
+        return self.authorname
