@@ -50,7 +50,6 @@ def review(request):
         review = request.POST.get('review')
     
     return render(request,'review.html')
->>>>>>> 29247c1f3427ab3c4cf3390ead4377f4c5657032
 
 
 def signin(request):
