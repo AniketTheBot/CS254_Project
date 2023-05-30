@@ -15,21 +15,16 @@
                 <div class="top-header">
                     <header>New User</header>
                 </div>
-                <div class="input-field">
-                    <input type="text" class="input" placeholder="Username" required>
-                    <i class="bx bx-user"></i>
-                </div>
-                <div class="input-field">
-                    <input type="email" class="input" placeholder="Email" required>
-                    <i class="bx bx-lock-alt"></i>
-                </div>
-                <div class="input-field">
-                    <input type="password" class="input" placeholder="Password" required>
-                    <i class="bx bx-lock-alt"></i>
-                </div>
-                <div class="input-field">
-                    <input type="Submit" class="submit animate__animated" value="Register" onclick="window.location.href = '/signin';">
-                </div>
+                <form action="/register",method = "post">
+                {% csrf_token %}
+                <input type="text" id= "username" name="username"class="input" placeholder="Username" Required>
+                <br><br>
+                <input type="email" id= "email" name="email"class="input" placeholder="E-mail" Required>
+                <br><br>
+                <input type="password" id= "password" name="password"class="input" placeholder="Password" Required>
+                <br><br>
+                <input type="Submit" class="submit animate__animated" value="Register">
+            </form>
                 <div>
                     <div>
                         <span>Already have an account?</span>
