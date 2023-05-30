@@ -29,11 +29,11 @@
             </div>
             <form action="/signin",method = "post">
             {% csrf_token %}
-                <input type="text" name="username"class="input" placeholder="Username" Required>
+                <input type="text" id= "username" name="username"class="input" placeholder="Username" Required>
                 <br><br>
-                <input type="password" name="password"class="input" placeholder="Password" Required>
+                <input type="password" id= "password" name="password"class="input" placeholder="Password" Required>
                 <br><br>
-                <input type="Submit" class="submit animate__animated" value="Login" onclick="window.location.href = '/home';">
+                <input type="Submit" class="submit animate__animated" value="Login">
             </form>
            {% comment %} <div class="bottom">
                 <div class="left">
