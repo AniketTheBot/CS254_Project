@@ -1,247 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Home</title>
 	<link rel="stylesheet" type="text/css" href="/static/style1.css">
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<style type="text/css">
-		*{
-			padding: 0;
-			margin: 0;
-			box-sizing: border-box;
+	<link rel="stylesheet" type="text/css"
+		href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		body {
+
+			padding: 0px;
+			margin: 0px;
 		}
-		nav{
-			width: 100%;
-			height: 60px;
+
+		.navbar {
 			display: flex;
-			justify-content: left;
-			font-size: 20px;
-			border-bottom: 1px solid #e5e5e5;
-		}
-		nav button{
-			display: none;
-		}
-		nav .logo{
-			width: 16%;
-			text-align: center;
-			margin-top: 20px;
-
-		}
-		nav{
-  background: linear-gradient(to right, #41281C, #291911, #584A3D);
-}
-
-
-nav ul {
-  margin-top: -10px;
-}
-nav .logo{
-  margin-top: 12px;
-}
-
-nav .menu{
-  margin-top: 10px; 
-}
-
-nav a {
-  color: white;
-}
-
-		nav .logo h1{
-			color: white;
-		}
-		nav .logo h1 span{
-			color: white;
-		}
-		nav  .menu{
-			width: 60%;
-			text-align: center;
-			margin-top: 20px;
-		}
-		nav .menu ul li{
-			list-style: none;
-			float: left;
+			justify-content: center;
+			align-items: center;
+			background-color: #0d0d0d;
 			padding: 10px;
-			margin: 0 20px;
+			gap: 20px;
 		}
-		nav .menu ul:nth-child(2) li{
-			position: relative;
-			top: -8px;
-			left: 140px;
-			color: white;
-		}
-		nav .menu ul li a{
+
+		.navbar a{
 			text-decoration: none;
 			color: white;
+			padding:10px;
 		}
-		nav .menu ul li a:hover{
-			color: #757575;
-		}
-		nav form{
-			position: absolute;
-			width: 60%;
-			left: 25%;
-			top: 65px;
-		}
-		nav form input{
-			width: 90%;
-			position: relative;
-			top: -45px;
-			padding: 10px 0px;
-			border: none;
-			outline: none;
-			transform: scaleX(0);
-			transform-origin: right;
-			transition: .5s;
-			border-bottom: 1px solid white;
 
+		.navbar a:nth-child(6){
+			flex-grow: 1px;
 		}
-		nav form input::placeholder{
-			font-size: 20px;
 
-		}
-		/*js-css*/
-		nav form input.expand{
-			transform: scaleX(1);
-			padding: 10px;
-		}
-		nav form input.expand ~ .fa-search{
-			visibility: hidden;
-		}
-		nav form input.expand ~ .fa-times{
-			display: block;
-		}
-		nav form .fa{
-			position: absolute;
-			top: -45px;
-			right: 10px;
-			cursor: pointer;
-			color: white;
-		}
-		.fa-times{
-			display: none;
-		}
-		section{
-			width: 100%;
-			height: 700px;
-			background: white;
-			display: flex;
-			justify-content: space-around;
-		}
-		.details, .image{
-			width: 50%;
-			padding: 50px;
-			font-size: 20px;
-			color: white;
-		}
-		h4, p{
-			padding: 20px;
-			margin: 20px;
-		}
-		img{
-			width: 100%;
-		}
-		@media(max-width: 768px) {
-			nav button{
-				display: block;
-				width: 30px;
-				height: 25px;
-				position: absolute;
-				top: 20px;
-				right: 20px;
-				cursor: pointer;
-				border: none;
-				outline: none;
-				background: white;
-			}
-			nav button:before,
-			nav button:after{
-				position: absolute;
-				content: '';
-				background: white;
-				width: 30px;
-				height: 3px;
-				top: 5px;
-				left: 0;
-				transition: 0.5s;
-			}
-			nav button:after{
-				top: 15px;
-			}
-			nav button.expand-icon{
-				background: transparent;
-			}
-			nav button.expand-icon:before,
-			nav button.expand-icon:after{
-				transform: rotate(45deg);
-				background: white;
-				top: 10px;
-			}
-			nav button.expand-icon:after{
-				transform:  rotate(-45deg);
-			}
-
-			nav .logo{
-				font-size: 17px;
-				left:   22%;
-			}
-			nav .menu{
-				position: absolute;
-				width: 100%;
-				height: 0;
-				background: white;
-				top: 80px;
-				transition: 0.5s;
-				overflow: hidden;
-			}
-			nav .menu.expand-mobile{
-				height: 700px;
-			}
-			nav .menu ul li{
-				float: right;
-				width: 90%;
-				text-align: left;
-			}
-			nav form{
-				left: 30%;
-				width: 65%;
-			}
-			nav .menu ul:nth-child(2) li{
-				top: 0;
-				left: 0;
-			}
-			h4,p{
-				padding: 0;
-				margin: 0;
-				font-size: initial;
-			}
-			
-		}
 	</style>
 </head>
+
 <body>
-	<nav>
-		<button></button>
-		<div class="logo"><h1><span></span></h1></div>
-		<div class="menu">
-			<ul>
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
-				<li><a href="/home">Home</a></li>
-				<li><a href="/about">About</a></li>
-				<li><a href="/review">Reviews</a></li>
-				<li><a href="/author">Authors</a></li>
-				<li><a href="/userdashboard">My dashboard</a></li>
-			</ul>
-		</div>
-		<form action="">
-			<input type="text" id="search" placeholder="Search your books here...">
-			<i class="fa fa-search"></i>
-			<i class="fa fa-times"></i>
-		</form>
-	</nav>
+	<div class="navbar">
+		<a href="/home">Home</a>
+		<a href="/about">About</a>
+		<a href="/review">Reviews</a>
+		<a href="/author">Authors</a>
+		<a href="/userdashboard">My dashboard</a>
+		<a href="/logout">Logout</a>
+	</div>
 	<div class="container">
 		<div class="book">
 			<img src="/static/Images/book1.png" alt="Book 1">
@@ -307,23 +111,24 @@ nav a {
 	</div>
 
 </body>
+
 </html>
 <script type="text/javascript">
 
-	var  searchIcon = document.querySelector('.fa-search');
-	var  closeIcon = document.querySelector('.fa-times');
-	var  search = document.getElementById('search');
+	var searchIcon = document.querySelector('.fa-search');
+	var closeIcon = document.querySelector('.fa-times');
+	var search = document.getElementById('search');
 
-	searchIcon.onclick = ()=>{
+	searchIcon.onclick = () => {
 		search.classList.add('expand');
 	}
-	closeIcon.onclick = ()=>{
+	closeIcon.onclick = () => {
 		search.classList.remove('expand');
 	}
 
 	var button = document.querySelector('button');
 	var menu = document.querySelector('.menu');
-	button.onclick = ()=>{
+	button.onclick = () => {
 		menu.classList.toggle('expand-mobile');
 		button.classList.toggle('expand-icon');
 
