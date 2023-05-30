@@ -50,7 +50,7 @@ def register(request):
 
         user = User(username= username, password = password,email = email)
         user.save()
-        
+
         return render(request,'signin.html')
     return render(request,'register.html')
 
@@ -71,7 +71,16 @@ def review(request):
 
 
 def signin(request):
-    return render(request,'signin.html')
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            return render(request, 'signin.html', {'error': 'Invalid email or password'})
+    return render('signin.html')
         
     
 

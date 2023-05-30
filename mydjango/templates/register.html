@@ -15,7 +15,7 @@
                 <div class="top-header">
                     <header>New User</header>
                 </div>
-                <form method="post" action="/review">
+                <form method="post" action="/register">
                     {% csrf_token %}
                     <div class="form-group">
                     <input type="text" class="input" placeholder="Username" required>
@@ -29,9 +29,7 @@
                     <input type="password" class="input" placeholder="Password" required>
                     <i class="bx bx-lock-alt"></i>
                 </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                
-            </form>
+                <button type="submit" class="btn btn-primary">Submit</button>
                 <div>
                     <div>
                         <span>Already have an account?</span>
@@ -40,6 +38,7 @@
                         <label><a href="/signin">Login</a></label>
                     </div>
                 </div>
+            </form>
             </div>
         </div>
     </body>
