@@ -1,5 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
+from django.contrib import messages
 
 from page1.models import BookIssue,BookPublish,BookReview,Author
 from datetime import datetime
@@ -43,15 +45,17 @@ def publishbook(request):
     return render(request,'publishbook.html')
 
 def register(request):
-    if request.method == "POST":
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        email = request.POST.get('email')
+    if request.method == 'POST':
+        username = request.POST.get['username']
+        password = request.POST.get['password']
+        email = request.POST.get['email']
+        myuser = User.objects.create_user(username,password,email)
+        myuser.name= username
+        
+        myuser.save()
 
-        user = User(username= username, password = password,email = email)
-        user.save()
-
-        return render(request,'signin.html')
+        messages.success(request,"Account successfully created!")
+        return redirect('signin.html')
     return render(request,'register.html')
 
 def returnbook(request):
@@ -72,15 +76,17 @@ def review(request):
 
 def signin(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('home')
-        else:
-            return render(request, 'signin.html', {'error': 'Invalid email or password'})
-    return render('signin.html')
+        username = request.POST.get['username']
+        password = request.POST.get['password']
+
+        myuser = User.objects.create(username,password)
+        myuser.name= username
+        
+        myuser.save()
+
+        messages.success(request,"Account successfully created!")
+        return redirect('home')
+    return render(request,'signin.html')
         
     
 
