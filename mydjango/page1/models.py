@@ -31,7 +31,7 @@ class BookReview(models.Model):
     #     return self.username
 
 class User(models.Model):
-    username = models.CharField(unique=True)
+    username = models.CharField(max_length=30,unique=True)
     password = models.TextField()
     email = models.EmailField(unique=True)
 

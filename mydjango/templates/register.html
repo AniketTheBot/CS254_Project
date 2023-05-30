@@ -15,21 +15,23 @@
                 <div class="top-header">
                     <header>New User</header>
                 </div>
-                <div class="input-field">
+                <form method="post" action="/review">
+                    {% csrf_token %}
+                    <div class="form-group">
                     <input type="text" class="input" placeholder="Username" required>
                     <i class="bx bx-user"></i>
                 </div>
-                <div class="input-field">
+                <div class="form-group">
                     <input type="email" class="input" placeholder="Email" required>
                     <i class="bx bx-lock-alt"></i>
                 </div>
-                <div class="input-field">
+                <div class="form-group">
                     <input type="password" class="input" placeholder="Password" required>
                     <i class="bx bx-lock-alt"></i>
                 </div>
-                <div class="input-field">
-                    <input type="Submit" class="submit animate__animated" value="Register" onclick="window.location.href = '/signin';">
-                </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                
+            </form>
                 <div>
                     <div>
                         <span>Already have an account?</span>

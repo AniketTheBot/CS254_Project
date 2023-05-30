@@ -43,6 +43,15 @@ def publishbook(request):
     return render(request,'publishbook.html')
 
 def register(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        email = request.POST.get('email')
+
+        user = User(username= username, password = password,email = email)
+        user.save()
+        
+        return render(request,'signin.html')
     return render(request,'register.html')
 
 def returnbook(request):
@@ -63,15 +72,9 @@ def review(request):
 
 def signin(request):
     return render(request,'signin.html')
+        
+    
 
 def userdashboard(request):
-    if request.method == "POST":
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        email = request.POST.get('email')
-
-        user = User(username= username, password = password,email = email)
-        user.save()
-        
-        return redirect('signin.html')
+    
     return render(request,'userdashboard.html')
