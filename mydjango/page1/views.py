@@ -1,5 +1,8 @@
 from django.shortcuts import render, HttpResponse
 
+from page1.models import User,BookIssue,BookPublish,BookReview,Author
+
+
 # Create your views here.
 def home(request):
     return render(request,'home.html')
@@ -33,13 +36,13 @@ def returnbook(request):
     return render(request,'returnbook.html')
 
 def review(request):
-    return render(request,'review.html')
-
-def review(request):
     if request.method == "POST":
         name = request.POST.get('name')
         booktitle = request.POST.get('booktitle')
         review = request.POST.get('review')
+
+        rev = Book
+        return HttpResponse("Review Added!")
     return render(request,'review.html')
 
 
