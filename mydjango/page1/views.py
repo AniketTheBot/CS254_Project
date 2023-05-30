@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth import authenticate, login
 
-from page1.models import User,BookIssue,BookPublish,BookReview,Author
+from page1.models import BookIssue,BookPublish,BookReview,Author
 from datetime import datetime
 
 # Create your views here.
