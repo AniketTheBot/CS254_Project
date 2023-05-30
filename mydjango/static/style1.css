@@ -15,7 +15,7 @@ body{
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  /* overflow: hidden; */
+  overflow: hidden;
   position: relative;
 
 }
@@ -25,13 +25,13 @@ body{
   flex-direction: column;
   align-items: center;
   width: 200px;
-  height: 355px;
+  height: 100%;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
   position: relative;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .book:hover {
@@ -58,6 +58,7 @@ body{
   text-align: center;
   color: #333;
   transition: color 0.2s ease-in-out;
+  padding: 7px;
 }
 
 .book:hover .book-title {
@@ -66,7 +67,7 @@ body{
 
 .author {
   font-size: 16px;
-  margin-top: 5px;
+  padding: 7px;
   text-align: center;
   color: #666;
   transition: color 0.2s ease-in-out;
@@ -104,4 +105,21 @@ body{
 
 .container:hover::after {
   opacity: 1;
+}
+
+.book{
+  position: relative;
+}
+
+.book span{
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.book:hover span{
+  display: block;
 }
