@@ -2,6 +2,9 @@ from django.shortcuts import render, HttpResponse
 from datetime import datetime
 from page1.models import BookReview, BookIssue, BookPublish
 
+from page1.models import User,BookIssue,BookPublish,BookReview,Author
+
+
 # Create your views here.
 
 
@@ -47,18 +50,11 @@ def returnbook(request):
 def review(request):
     return render(request,'review.html')
 
-
 def review(request):
     if request.method == "POST":
         name = request.POST.get('name')
         booktitle = request.POST.get('booktitle')
         review = request.POST.get('review')
-<<<<<<< HEAD
-        bookreview = BookReview(
-            name=name, booktitle=booktitle, review=review, date=datetime.today())
-        bookreview.save()
-    return render(request, 'review.html')
-=======
     return render(request,'review.html')
 >>>>>>> 29247c1f3427ab3c4cf3390ead4377f4c5657032
 
