@@ -1,5 +1,6 @@
-from django.shortcuts import render, HttpResponse
-
+from django.shortcuts import redirect, render, HttpResponse
+from django.contrib.auth.models import User
+from django.contrib import messages
 # Create your views here.
 def home(request):
     return render(request,'home.html')
@@ -27,19 +28,28 @@ def publishbook(request):
     return render(request,'publishbook.html')
 
 def register(request):
+    if request.method == "POST":
+        username=request.POST['username']
+        password=request.POST['password']
+        myuser = User.objects.create_user(username,password)
+        myuser.save()
+        
+        messages.success(request,"Account created successfully!")
+
+        return redirect('signin')
+
     return render(request,'register.html')
 
 def returnbook(request):
     return render(request,'returnbook.html')
 
-def review(request):
-    return render(request,'review.html')
 
 def review(request):
     if request.method == "POST":
         name = request.POST.get('name')
         booktitle = request.POST.get('booktitle')
         review = request.POST.get('review')
+    
     return render(request,'review.html')
 
 

@@ -27,17 +27,14 @@
             <div class="top-header">
                 <header>User Login</header>
             </div>
-            <div class="input-field">
-                <input type="text" class="input" placeholder="Username" required>
-                <i class="bx bx-user"></i>
-            </div>
-            <div class="input-field">
-                <input type="password" class="input" placeholder="Password" required>
-                <i class="bx bx-lock-alt"></i>
-            </div>
-            <div class="input-field">
+            <form action="">
+            {% csrf_token %}
+                <input type="text" name="username"class="input" placeholder="Username" Required>
+                <br><br>
+                <input type="password" name="password"class="input" placeholder="Password" Required>
+                <br><br>
                 <input type="Submit" class="submit animate__animated" value="Login" onclick="window.location.href = '/home';">
-            </div>
+            </form>
            {% comment %} <div class="bottom">
                 <div class="left">
                     <input type="checkbox" id="check">
