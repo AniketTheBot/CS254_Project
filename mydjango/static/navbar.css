@@ -60,7 +60,7 @@ header a:hover {
     color: #757575;
 }
 
-header .container {
+header .container-1 {
     position: relative;
     display: inline-block;
     background-color: transparent;
@@ -68,6 +68,7 @@ header .container {
     margin-right: 7px;
     border-radius: 0px;
     box-shadow: none;
+    overflow: none;
 }
 
 header .icon {
@@ -78,20 +79,31 @@ header .icon {
     cursor: pointer;
 }
 
-header .container .dropdown-content {
-    display: flex;
+header .container-1 .dropdown-content {
+    display: none;
+    /* display: flex;
+    flex-direction: column; */
     position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 160px;
+    bottom: -90px;
+    left: -50px;
     z-index: 1;
-    background-color: yellow;
+    border: 2px solid;  
+    background-color: #dbedf1;
 }
 
-header .container .dropdown-content a{
+header .container-1 .dropdown-content a{
     color: black;
 }
 
-/* header .container:hover .dropdown-content{
-    display: block;
-} */
+header .container-1:hover .dropdown-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Wishlist, .Logout{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 7px;
+}
