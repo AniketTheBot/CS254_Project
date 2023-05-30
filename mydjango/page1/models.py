@@ -27,11 +27,11 @@ class BookReview(models.Model):
     review = models.TextField()
     date = models.DateField()
 
-    # def __str__(self) -> str:
-    #     return self.username
+    def __str__(self) -> str:
+        return self.username
 
 class User(models.Model):
-    username = models.CharField(max_length=30,unique=True)
+    username = models.CharField(max_length=30)
     password = models.TextField()
     email = models.EmailField(unique=True)
 
