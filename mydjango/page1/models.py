@@ -30,14 +30,6 @@ class BookReview(models.Model):
     def __str__(self) -> str:
         return self.username
 
-class User(models.Model):
-    username = models.CharField(max_length=30)
-    password = models.TextField()
-    email = models.EmailField()
-
-    def __str__(self) -> str:
-        return self.username
-
 class Author(models.Model):
     authorname = models.CharField(max_length=30)
     authorID = models.IntegerField()
