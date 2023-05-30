@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.contrib import messages
 
@@ -79,13 +79,8 @@ def signin(request):
         username = request.POST.get['username']
         password = request.POST.get['password']
 
-        myuser = User.objects.create(username,password)
-        myuser.name= username
-        
-        myuser.save()
+        user = authenticate(username = username,password=password)
 
-        messages.success(request,"Account successfully created!")
-        return redirect('home')
     return render(request,'signin.html')
         
     
