@@ -33,7 +33,7 @@ class BookReview(models.Model):
 class User(models.Model):
     username = models.CharField(max_length=30)
     password = models.TextField()
-    email = models.EmailField(unique=True)
+    email = models.EmailField()
 
     def __str__(self) -> str:
         return self.username

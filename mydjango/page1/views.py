@@ -36,8 +36,8 @@ def publishbook(request):
         booktitle = request.POST.get('booktitle')
         ISBN = request.POST.get('ISBN')
         desc = request.POST.get('desc')
-        rev = BookReview(authorname = authorname,booktitle = booktitle,desc= desc,ISBN= ISBN,publdate= datetime.today())
-        rev.save()
+        publ = BookPublish(authorname = authorname,booktitle = booktitle,desc= desc,ISBN= ISBN,publdate= datetime.today())
+        publ.save()
 
         return HttpResponse("Book Published!")
     return render(request,'publishbook.html')
