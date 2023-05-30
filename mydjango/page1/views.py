@@ -49,6 +49,7 @@ def register(request):
         username = request.POST.get['username']
         password = request.POST.get['password']
         email = request.POST.get['email']
+        
         myuser = User.objects.create_user(username,password,email)
         myuser.name= username
         
@@ -82,7 +83,7 @@ def signin(request):
         user = authenticate(username = username,password=password)
         if user is not None:
             login(request,user)
-            return redirect('home')
+            return redirect('home.html')
         else:
             messages.error(request,"User not signed up")
             return redirect('signin.html')
