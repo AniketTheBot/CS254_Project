@@ -40,7 +40,7 @@ def review(request):
         name = request.POST.get('name')
         booktitle = request.POST.get('booktitle')
         review = request.POST.get('review')
-    return render(request,'review')
+    return render(request,'review.html')
 
 
 def signin(request):
