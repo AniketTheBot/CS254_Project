@@ -63,7 +63,7 @@ def review(request):
         booktitle = request.POST.get('booktitle')
         review = request.POST.get('review')
 
-        rev = BookReview(username = name,booktitle = booktitle,review= review)
+        rev = BookReview(name = name,booktitle = booktitle,review= review,date = datetime.today())
         rev.save()
 
         return HttpResponse("Review Added!")

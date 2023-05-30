@@ -15,21 +15,21 @@
                 <div class="top-header">
                     <header>New User</header>
                 </div>
-                <form method="post" action="/register">
-                    {% csrf_token %}
-                    <div class="form-group">
+                <div class="input-field">
                     <input type="text" class="input" placeholder="Username" required>
                     <i class="bx bx-user"></i>
                 </div>
-                <div class="form-group">
+                <div class="input-field">
                     <input type="email" class="input" placeholder="Email" required>
                     <i class="bx bx-lock-alt"></i>
                 </div>
-                <div class="form-group">
+                <div class="input-field">
                     <input type="password" class="input" placeholder="Password" required>
                     <i class="bx bx-lock-alt"></i>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="input-field">
+                    <input type="Submit" class="submit animate__animated" value="Register" onclick="window.location.href = '/signin';">
+                </div>
                 <div>
                     <div>
                         <span>Already have an account?</span>
@@ -38,7 +38,6 @@
                         <label><a href="/signin">Login</a></label>
                     </div>
                 </div>
-            </form>
             </div>
         </div>
     </body>
