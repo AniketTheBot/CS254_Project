@@ -62,7 +62,6 @@ def publishbook(request):
         booktitle = request.POST.get('booktitle')
         authorname = request.POST.get('authorname')
         ISBN = request.POST.get('ISBN')
-        publdate = request.POST.get('publdate')
         desc = request.POST.get('desc')
     return render(request,'home')
 
