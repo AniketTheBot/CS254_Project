@@ -16,6 +16,7 @@ class BookIssue(models.Model):
     booktitle = models.CharField(max_length=30)
     authorname = models.CharField(max_length=30)
     ISBN = models.IntegerField()
+    date = models.DateField()
 
     def __str__(self) -> str:
         return self.booktitle
@@ -30,9 +31,9 @@ class BookReview(models.Model):
     #     return self.username
 
 class User(models.Model):
-    username = models.CharField(max_length=30)
+    username = models.CharField(unique=True)
     password = models.TextField()
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
 
     def __str__(self) -> str:
         return self.username
