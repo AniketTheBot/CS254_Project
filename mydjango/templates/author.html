@@ -97,6 +97,57 @@
 			color: #4B5563;
 			margin-bottom: 0;
 		}
+
+		#register-author {
+			background-color: #F9FAFB;
+			padding: 80px 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		#register-form {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			max-width: 500px;
+			width: 100%;
+			margin: 0 auto;
+		}
+
+		.form-group {
+			display: flex;
+			flex-direction: column;
+		}
+
+		label {
+			font-size: 18px;
+			font-weight: 600;
+			margin-bottom: 8px;
+		}
+
+		input {
+			font-size: 16px;
+			padding: 8px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+
+		button {
+			font-size: 18px;
+			font-weight: 600;
+			padding: 12px 24px;
+			background-color: #4B5563;
+			color: #fff;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			transition: background-color 0.2s ease-in-out;
+		}
+
+		button:hover {
+			background-color: #1F2937;
+		}
 	</style>
 </head>
 
@@ -165,33 +216,33 @@
 	</section>
 
 
+	<section id="register-author">
+		<h2>Register as a New Author</h2>
+		<form id="register-form" method="post" action="/author">
+			{% csrf_token %} 
+			<div class="form-group">
+				<label for="authorname">Author Name</label>
+				<input type="text" id="authorname" name="authorname" required>
+			</div>
+			<div class="form-group">
+				<label for="authorID">Author ID</label>
+				<input type="number" id="authorID" name="authorID" required>
+			</div>
+			<div class="form-group">
+				<label for="authoremail">Author Email</label>
+				<input type="email" id="authoremail" name="authoremail" required>
+			</div>
+			<div class="form-group">
+				<label for="no_of_works">Number of Works</label>
+				<input type="number" id="no_of_works" name="no_of_works" required>
+			</div>
+			<button type="submit">Register</button>
+		</form>
+	</section>
+	
 
 
 
 </body>
 
 </html>
-<script type="text/javascript">
-
-	var searchIcon = document.querySelector('.fa-search');
-	var closeIcon = document.querySelector('.fa-times');
-	var search = document.getElementById('search');
-
-	searchIcon.onclick = () => {
-		search.classList.add('expand');
-	}
-	closeIcon.onclick = () => {
-		search.classList.remove('expand');
-	}
-
-	var button = document.querySelector('button');
-	var menu = document.querySelector('.menu');
-	button.onclick = () => {
-		menu.classList.toggle('expand-mobile');
-		button.classList.toggle('expand-icon');
-
-	}
-
-
-
-</script>
