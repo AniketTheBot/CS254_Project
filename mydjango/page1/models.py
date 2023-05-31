@@ -28,7 +28,7 @@ class BookReview(models.Model):
     date = models.DateField()
 
     def __str__(self) -> str:
-        return self.username
+        return self.name
 
 class Author(models.Model):
     authorname = models.CharField(max_length=30)
