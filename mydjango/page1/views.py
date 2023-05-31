@@ -2,7 +2,8 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth import authenticate,login
 from django.contrib.auth.models import User
 from django.contrib import messages
-
+from mydjango import settings
+from django.core.mail import send_mail
 from page1.models import BookIssue,BookPublish,BookReview,Author
 from datetime import datetime
 
@@ -49,13 +50,35 @@ def register(request):
         username = request.POST.get['username']
         password = request.POST.get['password']
         email = request.POST.get['email']
+
+        if User.objects.filter(username = username):
+            messages.error(request, "Username already exists!")
+            return redirect('register.html')
+
+        if User.objects.filter(email=email):
+            messages.error(request, "Email already registered!")
+            return redirect('register.html')
         
+        if username.isalnum():
+            messages.error("Username must be alphanumeric")
+            return redirect('register.html')
+            
+
         myuser = User.objects.create_user(username,password,email)
         myuser.name= username
         
         myuser.save()
 
         messages.success(request,"Account successfully created!")
+
+        subject = "Welcome to BP\n"
+        message = "Thanku for signing up\n\n"
+        from_email =  settings.EMAIL_HOST_USER
+        to_list = [myuser.email]
+        send_mail(subject,message,from_email,to_list, fail_silently=True)
+
+
+
         return redirect('signin.html')
     return render(request,'register.html')
 
