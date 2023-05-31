@@ -396,8 +396,7 @@ h1,h2{
             <input type="text" id="isbn" name="isbn" required>
           </div>
       
-          <label for="publication-date">Publication Date:</label>
-          <input type="date" id="publication-date" name="publication-date" required>
+
       
           <label for="description">Description:</label>
           <textarea id="description" name="description" required></textarea>
@@ -435,10 +434,15 @@ h1,h2{
 	}
 
 	var button = document.querySelector('button');
-	var menu = document.querySelector('.menu');
+	var menu = document.querySelector('.menu'); 
 	button.onclick = ()=>{
 		menu.classList.toggle('expand-mobile');
 		button.classList.toggle('expand-icon');
 
 	}
+
+  var submitButton = document.getElementById("submitButton");
+  submitButton.addEventListener("click", function() {
+    alert("Your book has been published!");
+  }
 </script>
