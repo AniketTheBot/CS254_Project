@@ -34,7 +34,7 @@ class Author(models.Model):
     authorname = models.CharField(max_length=30)
     authorID = models.IntegerField()
     authoremail = models.EmailField()
-    about = models.CharField()
+    about = models.CharField(max length=100)
     no_of_works = models.IntegerField()
 
     def __str__(self) -> str:
