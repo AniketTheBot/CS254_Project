@@ -3,7 +3,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth import authenticate,login
 from django.contrib.auth.models import User
 from django.contrib import messages
-from mydjango import settings
+from django01 import settings
 from django.core.mail import send_mail,EmailMessage
 from page1.models import BookIssue,BookPublish,BookReview,Author
 from datetime import datetime
