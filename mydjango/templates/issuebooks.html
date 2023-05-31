@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>User dashboard</title> 
-    <link rel="stylesheet" href="style2.css">
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="static/navbar.css">
+	<title>User dashboard</title>
+	<link rel="stylesheet" href="style2.css">
+	<link rel="stylesheet" type="text/css"
+		href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/static/navbar.css">
 	<style type="text/css">
 		*{
 			padding: 0;
@@ -298,60 +300,108 @@ button {
 		}
 
         /* <!--side menu bar-->*/
-        *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
 
-body{
-    min-height: 100vh;
-}
+		body {
+			min-height: 100vh;
+		}
 
-a{
-    text-decoration: none;
-}
+		a {
+			text-decoration: none;
+		}
 
-li{
-    list-style:none;
-}
+		li {
+			list-style: none;
+		}
 
-h1,h2{
-    color: white;
-}
+		h1,
+		h2 {
+			color: white;
+		}
 
-.side-menu{
-    position: fixed;
-    background: linear-gradient(to right, #1B130D, #362016);
-    width: 20vw;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
+		.side-menu {
+			position: fixed;
+			background: linear-gradient(to right, #1B130D, #362016);
+			width: 20vw;
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+		}
 
-.side-menu .brand-name{
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+		.side-menu .brand-name {
+			height: 10vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 
-.side-menu li{
-    font-size: 24px;
-    padding: 10px 40px;
-    display: flex;
-    align-items: center;
-}
+		.side-menu li {
+			font-size: 24px;
+			padding: 10px 40px;
+			display: flex;
+			align-items: center;
+		}
 
-.side-menu li:hover{
-    background: white;
-    color: #f05462;
-}
+		.side-menu li:hover {
+			background: white;
+			color: #f05462;
+		}
 
 
-       /* <!--side menu bar ends--> */
+		 /* ... */
+
+        /* Issue book form styles */
+        .issue-book-form {
+            margin-left: 25vw;
+            padding: 2rem;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            width: 50%;
+        }
+
+        .issue-book-form h2 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .issue-book-form label {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .issue-book-form input[type="text"],
+        .issue-book-form input[type="number"],
+        .issue-book-form input[type="date"] {
+            width: 100%;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .issue-book-form input[type="submit"] {
+            background-color: #1B130D;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .issue-book-form input[type="submit"]:hover {
+            background-color: #362016;
+        }
+		/* <!--side menu bar ends--> */
 	</style>
 </head>
+
 <body>
 	<header>
 		<nav class="navbar">
@@ -383,42 +433,46 @@ h1,h2{
 	</div>
 
 	<!--Dasboard ends here-->
-    <div class="form-container">
-        <form method="POST">
-          <label for="book-title">Book Title:</label>
-          <input type="text" id="book-title" name="book-title" required>
-      
-          <label for="author-name">Author Name:</label>
-          <input type="text" id="author-name" name="author-name" required>
+	<div class="issue-book-form" style="margin-left: 25vw; padding: 2rem;">
+        <h2>Issue Book</h2>
+        <form action="/userdashboard/issuebooks" method="POST">
+            {% csrf_token %}
+            <label for="booktitle">Book Title:</label>
+            <input type="text" id="booktitle" name="booktitle" required><br><br>
 
-          <div class="form-group">
-            <label for="isbn">ISBN:</label>
-            <input type="text" id="isbn" name="isbn" required>
-          </div>
-      
-          <button type="submit" id="submit-btn">Issue book</button>
+            <label for="authorname">Author Name:</label>
+            <input type="text" id="authorname" name="authorname" required><br><br>
+
+            <label for="ISBN">ISBN:</label>
+            <input type="number" id="ISBN" name="ISBN" required><br><br>
+
+            <label for="date">Issue Date:</label>
+            <input type="date" id="date" name="date" required><br><br>
+
+            <input type="submit" value="Issue Book">
         </form>
-      </div>
-      
+    </div>
+
 
 </body>
+
 </html>
 <script type="text/javascript">
 
-	var  searchIcon = document.querySelector('.fa-search');
-	var  closeIcon = document.querySelector('.fa-times');
-	var  search = document.getElementById('search');
+	var searchIcon = document.querySelector('.fa-search');
+	var closeIcon = document.querySelector('.fa-times');
+	var search = document.getElementById('search');
 
-	searchIcon.onclick = ()=>{
+	searchIcon.onclick = () => {
 		search.classList.add('expand');
 	}
-	closeIcon.onclick = ()=>{
+	closeIcon.onclick = () => {
 		search.classList.remove('expand');
 	}
 
 	var button = document.querySelector('button');
 	var menu = document.querySelector('.menu');
-	button.onclick = ()=>{
+	button.onclick = () => {
 		menu.classList.toggle('expand-mobile');
 		button.classList.toggle('expand-icon');
 
