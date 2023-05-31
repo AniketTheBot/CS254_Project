@@ -133,17 +133,20 @@ def wishlisted(request):
     return render(request, 'wishlisted.html')
 
 def review(request):
+    booktitle = ""
+    review = ""
     if request.method == "POST":
         name = request.POST.get('name')
+        print(name)
         booktitle = request.POST.get('booktitle')
+        print(booktitle)
         review = request.POST.get('review')
-
-        rev = BookReview(name=name, booktitle=booktitle,
-                         review=review, date=datetime.today())
+        print(review)
+        rev = BookReview(name=name, booktitle=booktitle, review=review, date=datetime.today())
         rev.save()
-
-        return HttpResponse("Review Added!")
-    return render(request, 'review.html')
+      
+       # return HttpResponse("Review Added!")
+    return render(request, 'review.html', {'booktitle': booktitle, 'review': review})
 
 
 def signin(request):
