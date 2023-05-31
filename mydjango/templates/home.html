@@ -21,15 +21,15 @@
 			<a href="/userdashboard">My dashboard</a>
 		</nav>
 		<div class="container-1">
-			<a class="icon" href="">
-				<ion-icon class name="person-circle-outlin</span>e"></ion-icon>
+			<a class="icon" href="/userdashboard">
+				<ion-icon class name="person-circle-outline"></ion-icon>
 			</a>
 			<div class="dropdown-content">
-				<a class="Wishlist" href="/about">
+				<a class="Wishlist" href="">
 					<span class="text">Wishlist</span>
 					<span><ion-icon name="heart-outline"></ion-icon></span>
 				</a>
-				<a class="Logout" href="">
+				<a class="Logout" href="/signin">
 					<span class="text">Logout</span>
 
 					<span><ion-icon name="log-out-outline"></ion-icon></span>
@@ -46,20 +46,23 @@
 			<img src="/static/Images/book1.png" alt="Book 1">
 			<div class="book-title">Atomic Habits</div>
 			<div class="author">James Clear</div>
-			<span><ion-icon name="heart-outline"></ion-icon></span>
-
+			<span><ion-icon id="heartIcon" name="heart-outline"></ion-icon></span>
+			<a class="rent-book" href="userdashboard/issuebooks">Rent book</a>
 		</div>
 		<div class="book">
 			<img src="/static/Images/book2.png" alt="Book 2">
 			<div class="book-title">Harry Potter</div>
 			<div class="author">JK Rowling</div>
-			<span><ion-icon name="heart-outline"></ion-icon></span>
+
+			<span><ion-icon id="heartIcon" name="heart-outline"></ion-icon></span>
+			<a class="rent-book" href="userdashboard/issuebooks">Rent book</a>
 		</div>
 		<div class="book">
 			<img src="/static/Images/book3.png" alt="Book 3">
 			<div class="book-title">Stink</div>
 			<div class="author">Jenny Mclachlan</div>
 			<span><ion-icon name="heart-outline"></ion-icon></span>
+			<a class="rent-book" href="userdashboard/issuebooks">Rent book</a>
 
 		</div>
 		<div class="book">
@@ -67,56 +70,65 @@
 			<div class="book-title">The Last Bear</div>
 			<div class="author">Hannah Gold</div>
 			<span><ion-icon name="heart-outline"></ion-icon></span>
-
+			<a class="rent-book" href="userdashboard/issuebooks">Rent book</a>
 		</div>
 
 		<div class="book">
 			<img src="/static/Images/book5.png" alt="Book 5">
 			<div class="book-title">The Silent Patient</div>
 			<div class="author">Alex Michaelides</div>
-			<span><ion-icon name="heart-outline" onclick = "click"></ion-icon></span>
+			<span><ion-icon name="heart-outline"></ion-icon></span>
+			<a class="rent-book" href="userdashboard/issuebooks">Rent book</a>
+
+
 
 		</div>
 		<div class="book">
 			<img src="/static/Images/book6.png" alt="Book 6">
 			<div class="book-title">Energize Your Mind</div>
 			<div class="author">Gaur Gopal Das</div>
-			<span><ion-icon name="heart-outline" onclick = "click"></ion-icon></span>
+			<span><ion-icon name="heart-outline"></ion-icon></span>
+			<a class="rent-book" href="userdashboard/issuebooks">Rent book</a>
 
 		</div>
 		<div class="book">
 			<img src="/static/Images/book7.png" alt="Book 7">
 			<div class="book-title">That Night</div>
 			<div class="author">Nidhi Upadhyay</div>
-			<span><ion-icon name="heart-outline" onclick = "click"></ion-icon></span>
+			<span><ion-icon name="heart-outline"></ion-icon></span>
+			<a class="rent-book" href="userdashboard/issuebooks">Rent book</a>
 
 		</div>
 		<div class="book">
 			<img src="/static/Images/book8.png" alt="Book 8">
 			<div class="book-title">It Ends With Us</div>
 			<div class="author">Colleen Hoover</div>
-			<span><ion-icon name="heart-outline" onclick = "click"></ion-icon></span>
+			<span><ion-icon name="heart-outline"></ion-icon></span>
+			<a class="rent-book" href="userdashboard/issuebooks">Rent book</a>
 
 		</div>
 		<div class="book">
 			<img src="/static/Images/book9.png" alt="Book 9">
 			<div class="book-title">Thomas Calculus</div>
 			<div class="author">Joel Hass</div>
-			<span><ion-icon name="heart-outline" onclick = "click"></ion-icon></span>
+			<span><ion-icon name="heart-outline"></ion-icon></span>
+			<a class="rent-book" href="userdashboard/issuebooks">Rent book</a>
 
 		</div>
 		<div class="book">
 			<img src="/static/Images/book10.png" alt="Book 10">
 			<div class="book-title">Multivariable Calculus</div>
 			<div class="author">Anthony J. Tromba</div>
-			<span><ion-icon name="heart-outline" onclick = "click"></ion-icon></span>
+			<span><ion-icon name="heart-outline"></ion-icon></span>
+			<a class="rent-book" href="userdashboard/issuebooks">Rent book</a>
 
 		</div>
 		<div class="book">
 			<img src="/static/Images/book11.jpg" alt="Book 11">
 			<div class="book-title">Ikigai</div>
 			<div class="author">Francesc Miralles,<br>Hector Garcia</div>
-			<span><ion-icon name="heart-outline" onclick = "click"></ion-icon></span>
+			<span><ion-icon name="heart-outline"></ion-icon></span>
+			<a class="rent-book" href="userdashboard/issuebooks">Rent book</a>
 
 		</div>
 	</div>
@@ -139,10 +151,6 @@
 		search.classList.remove('expand');
 	}
 
-	function weekclick(id) {    
-    document.getElementById(id).setAttribute("name","w1-1");
-}
-
 	var button = document.querySelector('button');
 	var menu = document.querySelector('.menu');
 	button.onclick = () => {
@@ -150,6 +158,18 @@
 		button.classList.toggle('expand-icon');
 
 	}
+
+	var iconElement = document.getElementById("heartIcon");
+
+	iconElement.addEventListener("click", function () {
+		if (iconElement.getAttribute("name") === "heart-outline") {
+			iconElement.setAttribute("name", "heart");
+		} else {
+			iconElement.setAttribute("name", "heart-outline");
+		}
+	});
+
+
 
 
 

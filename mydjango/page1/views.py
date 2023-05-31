@@ -16,8 +16,6 @@ def about(request):
 def author(request):
     return render(request,'author.html')
 
-def issuebooks(request):
-    return render(request,'issuebooks.html')
 
 def issuebooks(request):
     if request.method == "POST":
@@ -27,7 +25,7 @@ def issuebooks(request):
 
         issue = BookIssue(booktitle= booktitle,authorname = authorname,ISBN = ISBN,date = datetime.today())
         issue.save()
-    return render(request,'review')
+    return render(request,'issuebooks.html')
 
 def landing(request):
     return render(request,'landing.html')
