@@ -117,6 +117,8 @@ def register(request):
 def returnbook(request):
     return render(request, 'returnbook.html')
 
+def wishlisted(request):
+    return render(request, 'wishlisted.html')
 
 def review(request):
     if request.method == "POST":
