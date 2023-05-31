@@ -61,16 +61,15 @@ def landing(request):
 
 def publishbook(request):
     if request.method == "POST":
-        authorname = request.POST.get('authorname')
         booktitle = request.POST.get('booktitle')
-        ISBN = request.POST.get('ISBN')
+        authorname = request.POST.get('authorname')
+        isbn = request.POST.get('ISBN')
+        publdate = request.POST.get('publdate')
         desc = request.POST.get('desc')
-        publ = BookPublish(authorname=authorname, booktitle=booktitle,
-                           desc=desc, ISBN=ISBN, publdate=datetime.today())
-        publ.save()
 
-        success_message = "Data submitted successfully!"
-        return render(request, 'publishbook.html',{'success_message': success_message})
+        book = BookPublish(booktitle=booktitle, authorname=authorname, ISBN=isbn, publdate=publdate, desc=desc)
+        book.save()
+
     return render(request, 'publishbook.html')
 
 
