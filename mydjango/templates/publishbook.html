@@ -382,40 +382,31 @@ h1,h2{
           </div>
       
 	<!--Dasboard ends here-->
-    <div class="form-container">
-        <form method="POST">
-          <label for="book-title">Book Title:</label>
-          <input type="text" id="book-title" name="book-title" required>
+  <div class="form-container">
+    <form action="/userdashboard/publishbook" method="POST">
+      {% csrf_token %}
       
-          <label for="author-name">Author Name:</label>
-          <input type="text" id="author-name" name="author-name" required>
-
-          <div class="form-group">
-            <label for="isbn">ISBN:</label>
-            <input type="text" id="isbn" name="isbn" required>
-          </div>
+      <label for="booktitle">Book Title:</label>
+      <input type="text" id="booktitle" name="booktitle" required>
       
-          <label for="publication-date">Publication Date:</label>
-          <input type="date" id="publication-date" name="publication-date" required>
-      
-          <label for="description">Description:</label>
-          <textarea id="description" name="description" required></textarea>
-      
-          <label for="book-cover">Book Cover:</label>
-          <div class="file-input">
-            <input type="file" id="book-cover" name="book-cover" accept="image/*" required>
-            <span>Choose File</span>
-          </div>
-                
-          <label for="book-cover">Pdf of the book</label>
-          <div class="file-input">
-            <input type="file" id="book-cover" name="book-cover" accept="image/*" required>
-            <span>Choose File</span>
-          </div>
-      
-          <button type="submit" id="submit-btn">Publish Book</button>
-        </form>
+      <label for="authorname">Author Name:</label>
+      <input type="text" id="authorname" name="authorname" required>
+  
+      <div class="form-group">
+        <label for="ISBN">ISBN:</label>
+        <input type="text" id="ISBN" name="ISBN" required>
       </div>
+      
+      <label for="publdate">Publication Date:</label>
+      <input type="date" id="publdate" name="publdate" required>
+      
+      <label for="desc">Description:</label>
+      <textarea id="desc" name="desc" required></textarea>
+      
+      <button type="submit" id="submit-btn">Publish Book</button>
+    </form>
+  </div>
+  
       
 
 </body>
