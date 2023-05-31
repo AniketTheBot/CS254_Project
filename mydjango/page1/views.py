@@ -28,6 +28,18 @@ def about(request):
 
 
 def author(request):
+    if request.method == "POST":
+        # Process the form data here
+        authorname = request.POST.get('authorname')
+        authorID = request.POST.get('authorID')
+        authoremail = request.POST.get('authoremail')
+        no_of_works = request.POST.get('no_of_works')
+
+        # Save the form data to the Author model or perform any other necessary actions
+        # For example:
+        author = Author(authorname=authorname, authorID=authorID, authoremail=authoremail, no_of_works=no_of_works)
+        author.save()
+
     return render(request, 'author.html')
 
 
