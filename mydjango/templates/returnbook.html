@@ -394,7 +394,7 @@ h1,h2{
             <input type="text" id="isbn" name="isbn" required>
           </div>
       
-          <button type="submit" id="submit-btn">Return book</button>
+          <button onclick="givealert" type="submit" id="submit-btn">Return book</button>
         </form>
       </div>
       
@@ -421,4 +421,8 @@ h1,h2{
 		button.classList.toggle('expand-icon');
 
 	}
+
+  function givealert(){
+    alert("The book has been returned!");
+  };
 </script>
