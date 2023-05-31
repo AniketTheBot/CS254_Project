@@ -28,19 +28,27 @@ def about(request):
 
 
 def author(request):
+    authorname=""
+    authorID=""
+    authoremail=""
+    no_of_works=""
     if request.method == "POST":
         # Process the form data here
         authorname = request.POST.get('authorname')
+        print(authorname)
         authorID = request.POST.get('authorID')
+        print(authorID)
         authoremail = request.POST.get('authoremail')
+        print(authoremail)
         no_of_works = request.POST.get('no_of_works')
+        print(no_of_works)
 
         # Save the form data to the Author model or perform any other necessary actions
         # For example:
         author = Author(authorname=authorname, authorID=authorID, authoremail=authoremail, no_of_works=no_of_works)
         author.save()
 
-    return render(request, 'author.html')
+    return render(request, 'author.html', {'authorname': authorname, 'authorID': authorID, 'authoremail': authoremail, 'no_of_works': no_of_works})
 
 
 def issuebooks(request):
@@ -127,6 +135,7 @@ def register(request):
 
 
 def returnbook(request):
+    
     return render(request, 'returnbook.html')
 
 def wishlisted(request):
