@@ -387,7 +387,7 @@ h1,h2{
           {% csrf_token %}
           <div class="form-group">
               <label for="booktitle">Book Title:</label>
-              <input type="text" id="booktitle" name="bookstitle" required>
+              <input type="text" id="booktitle" name="booktitle" required>
           </div>
           <div class="form-group">
               <label for="authorname">Author Name:</label>
@@ -401,7 +401,7 @@ h1,h2{
               <label for="desc">Description:</label>
               <textarea id="desc" name="desc" required></textarea>
           </div>
-          <button type="submit" id="submit-btn">Publish Book</button>
+          <button onclick="givealert()" type="submit" id="submit-btn">Publish Book</button>
     </form>
   </div>
   
@@ -430,8 +430,7 @@ h1,h2{
 
 	}
 
-  var submitButton = document.getElementById("submitButton");
-  submitButton.addEventListener("click", function() {
-    alert("Your book has been published!");
-  }
+  function givealert(){
+    alert("Your book has been published successfully!");
+  };
 </script>

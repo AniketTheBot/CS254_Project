@@ -64,12 +64,12 @@ def publishbook(request):
         authorname = request.POST.get('authorname')
         ISBN = request.POST.get('ISBN')
         desc = request.POST.get('desc')
-        
+
         publ = BookPublish(booktitle=booktitle, authorname=authorname,desc=desc, ISBN=ISBN, publdate=datetime.today())
         publ.save()
 
-        #success_message = "Data submitted successfully!"
-        #return render(request, 'publishbook.html',{'success_message': success_message})
+        # success_message = "Your book has been published successfully!"
+        # return render(request, 'publishbook.html',{'success_message': success_message})
     return render(request, 'publishbook.html')
 
 
