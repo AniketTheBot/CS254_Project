@@ -383,7 +383,8 @@ h1,h2{
       
 	<!--Dasboard ends here-->
     <div class="form-container">
-        <form method="POST">
+        <form action="/userdashboard/publishbook" method="POST">
+          {% csrf_token %}
           <label for="book-title">Book Title:</label>
           <input type="text" id="book-title" name="book-title" required>
       
