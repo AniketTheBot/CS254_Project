@@ -69,7 +69,8 @@ def publishbook(request):
                            desc=desc, ISBN=ISBN, publdate=datetime.today())
         publ.save()
 
-        return HttpResponse("Book Published!")
+        success_message = "Data submitted successfully!"
+        return render(request, 'publishbook.html',{'success_message': success_message})
     return render(request, 'publishbook.html')
 
 
