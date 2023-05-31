@@ -446,7 +446,7 @@ button {
             <label for="ISBN">ISBN:</label>
             <input type="number" id="ISBN" name="ISBN" required><br><br>
 
-            <input type="submit" value="Issue Book">
+            <input onclick="givealert"type="submit" value="Issue Book">
         </form>
     </div>
 
@@ -474,4 +474,8 @@ button {
 		button.classList.toggle('expand-icon');
 
 	}
+
+	function givealert(){
+		alert("The book has been issued to you!");
+	  };
 </script>
