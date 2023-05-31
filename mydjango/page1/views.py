@@ -28,19 +28,27 @@ def about(request):
 
 
 def author(request):
+    authorname=""
+    authorID=""
+    authoremail=""
+    no_of_works=""
     if request.method == "POST":
         # Process the form data here
         authorname = request.POST.get('authorname')
+        print(authorname)
         authorID = request.POST.get('authorID')
+        print(authorID)
         authoremail = request.POST.get('authoremail')
+        print(authoremail)
         no_of_works = request.POST.get('no_of_works')
+        print(no_of_works)
 
         # Save the form data to the Author model or perform any other necessary actions
         # For example:
         author = Author(authorname=authorname, authorID=authorID, authoremail=authoremail, no_of_works=no_of_works)
         author.save()
 
-    return render(request, 'author.html')
+    return render(request, 'author.html', {'authorname': authorname, 'authorID': authorID, 'authoremail': authoremail, 'no_of_works': no_of_works})
 
 
 def issuebooks(request):
@@ -49,8 +57,7 @@ def issuebooks(request):
         authorname = request.POST.get('authorname')
         ISBN = request.POST.get('ISBN')
 
-        issue = BookIssue(booktitle=booktitle, authorname=authorname,
-                          ISBN=ISBN, date=datetime.today())
+        issue = BookIssue(booktitle=booktitle, authorname=authorname,ISBN=ISBN, date=datetime.today())
         issue.save()
     return render(request, 'issuebooks.html')
 
@@ -63,13 +70,14 @@ def publishbook(request):
     if request.method == "POST":
         booktitle = request.POST.get('booktitle')
         authorname = request.POST.get('authorname')
-        isbn = request.POST.get('ISBN')
-        publdate = request.POST.get('publdate')
+        ISBN = request.POST.get('ISBN')
         desc = request.POST.get('desc')
 
-        book = BookPublish(booktitle=booktitle, authorname=authorname, ISBN=isbn, publdate=publdate, desc=desc)
-        book.save()
+        publ = BookPublish(booktitle=booktitle, authorname=authorname,desc=desc, ISBN=ISBN, publdate=datetime.today())
+        publ.save()
 
+        # success_message = "Your book has been published successfully!"
+        # return render(request, 'publishbook.html',{'success_message': success_message})
     return render(request, 'publishbook.html')
 
 
@@ -127,23 +135,27 @@ def register(request):
 
 
 def returnbook(request):
+    
     return render(request, 'returnbook.html')
 
 def wishlisted(request):
     return render(request, 'wishlisted.html')
 
 def review(request):
+    booktitle = ""
+    review = ""
     if request.method == "POST":
         name = request.POST.get('name')
+        print(name)
         booktitle = request.POST.get('booktitle')
+        print(booktitle)
         review = request.POST.get('review')
-
-        rev = BookReview(name=name, booktitle=booktitle,
-                         review=review, date=datetime.today())
+        print(review)
+        rev = BookReview(name=name, booktitle=booktitle, review=review, date=datetime.today())
         rev.save()
-
-        return HttpResponse("Review Added!")
-    return render(request, 'review.html')
+      
+       # return HttpResponse("Review Added!")
+    return render(request, 'review.html', {'booktitle': booktitle, 'review': review})
 
 
 def signin(request):

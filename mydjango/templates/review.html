@@ -132,12 +132,35 @@
 	</header>
 	
 	<section class="reviews">
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<div class="add-review">
+					<h3>Add Your Review</h3>
+					<form method="post" action="/review">
+						{% csrf_token %}
+						<div class="form-group">
+							<label for="name">Name</label>
+							<input type="text" class="form-control" name="name" id="name" required>
+						</div>
+						<div class="form-group">
+							<label for="booktitle">Book Title</label>
+							<input type="text" class="form-control" name="booktitle" id="book" required>
+						</div>
+						<div class="form-group">
+							<label for="review">Review</label>
+							<textarea class="form-control" id="review" name="review" rows="5" required></textarea>
+						</div>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
 		<div class="container">
 			<h2>What Our Readers Say</h2>
 			<div class="row">
 				<div class="col-md-6">
 					<div class="review">
-						<img src="/static/Images//review1.png" alt="Review 1">
+						
 						<div class="review-text">
 							<h3>The Catcher in the Rye</h3>
 							<p>A timeless coming-of-age story that captures the disillusionment and angst of
@@ -147,7 +170,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="review">
-						<img src="/static/Images/review2.png" alt="Review 2">
+						
 						<div class="review-text">
 							<h3>To Kill a Mockingbird</h3>
 							<p>A poignant and powerful novel that explores themes of racial inequality and injustice
@@ -155,30 +178,17 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6 offset-md-3">
-					<div class="add-review">
-						<h3>Add Your Review</h3>
-						<form method="post" action="/review">
-							{% csrf_token %}
-							<div class="form-group">
-								<label for="name">Name</label>
-								<input type="text" class="form-control" name="name" id="name" required>
-							</div>
-							<div class="form-group">
-								<label for="booktitle">Book Title</label>
-								<input type="text" class="form-control" name="booktitle" id="book" required>
-							</div>
-							<div class="form-group">
-								<label for="review">Review</label>
-								<textarea class="form-control" id="review" name="review" rows="5" required></textarea>
-							</div>
-							<button type="submit" class="btn btn-primary">Submit</button>
-						</form>
+				<div class="col-md-6">
+					<div class="review">
+						
+						<div class="review-text">
+							<h3>{{booktitle}}</h3>
+							<p>{{review}}</p>
+						</div>
 					</div>
 				</div>
 			</div>
+			
 		</div>
 	</section>
 

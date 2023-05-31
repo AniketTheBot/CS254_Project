@@ -383,27 +383,27 @@ h1,h2{
       
 	<!--Dasboard ends here-->
     <div class="form-container">
-        <form action="/userdashboard/publishbook" method="POST">
+        <form action="/userdashboard/publishbook" method="post">
           {% csrf_token %}
-          <label for="book-title">Book Title:</label>
-          <input type="text" id="book-title" name="book-title" required>
-      
-      <label for="authorname">Author Name:</label>
-      <input type="text" id="authorname" name="authorname" required>
-  
-      <div class="form-group">
-        <label for="ISBN">ISBN:</label>
-        <input type="text" id="ISBN" name="ISBN" required>
-      </div>
-      
-      <label for="publdate">Publication Date:</label>
-      <input type="date" id="publdate" name="publdate" required>
-      
-      <label for="desc">Description:</label>
-      <textarea id="desc" name="desc" required></textarea>
-      
-      <button type="submit" id="submit-btn">Publish Book</button>
+          <div class="form-group">
+              <label for="booktitle">Book Title:</label>
+              <input type="text" id="booktitle" name="booktitle" required>
+          </div>
+          <div class="form-group">
+              <label for="authorname">Author Name:</label>
+              <input type="text" id="authorname" name="authorname" required>
+          </div>
+          <div class="form-group">
+              <label for="ISBN">ISBN:</label>
+              <input type="text" id="ISBN" name="ISBN" required>
+          </div>
+          <div class="form-group">
+              <label for="desc">Description:</label>
+              <textarea id="desc" name="desc" required></textarea>
+          </div>
+          <button onclick="givealert()" type="submit" id="submit-btn">Publish Book</button>
     </form>
+    
   </div>
   
       
@@ -424,10 +424,14 @@ h1,h2{
 	}
 
 	var button = document.querySelector('button');
-	var menu = document.querySelector('.menu');
+	var menu = document.querySelector('.menu'); 
 	button.onclick = ()=>{
 		menu.classList.toggle('expand-mobile');
 		button.classList.toggle('expand-icon');
 
 	}
+
+  function givealert(){
+    alert("Your book has been published successfully!");
+  };
 </script>
