@@ -117,7 +117,8 @@ def review(request):
         rev = BookReview(name = name,booktitle = booktitle,review= review,date = datetime.today())
         rev.save()
 
-        return HttpResponse("Review Added!")
+        messages.success(request,"Review Added!")
+        return render(request,'review.html')
     return render(request,'review.html')
 
 
