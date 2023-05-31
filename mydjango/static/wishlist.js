@@ -1,16 +1,16 @@
 let wishlist = [];
 
-function addToWishlist(imageId) {
-    const iconElement = document.querySelector(`i[data-id="${imageId}"]`);
+function addToWishlist(bookId) {
+    const iconElement = document.querySelector(`i[data-id="${bookId}"]`);
 
-    if (!wishlist.includes(imageId)) {
-        wishlist.push(imageId);
+    if (!wishlist.includes(bookId)) {
+        wishlist.push(bookId);
         localStorage.setItem('wishlist', JSON.stringify(wishlist));
         if (iconElement) {
             iconElement.classList.add('wishlisted');
         }
     } else {
-        const index = wishlist.indexOf(imageId);
+        const index = wishlist.indexOf(bookId);
         wishlist.splice(index, 1);
         localStorage.setItem('wishlist', JSON.stringify(wishlist));
         if (iconElement) {
@@ -20,7 +20,7 @@ function addToWishlist(imageId) {
 }
 
 
-function displayWishlistedImages() {
+function displayWishlistedBooks() {
     const wishlistedContainer = document.getElementById('wishlisted-container');
     const storedWishlist = localStorage.getItem('wishlist');
 
@@ -28,19 +28,13 @@ function displayWishlistedImages() {
         wishlist = JSON.parse(storedWishlist);
     }
 
-    wishlist.forEach(imageId => {
-        const iconElement = document.querySelector(`i[data-id="${imageId}"]`);
+    wishlist.forEach(bookId => {
+        const iconElement = document.querySelector(`i[data-id="${bookId}"]`);
         if (iconElement) {
             iconElement.classList.add('wishlisted');
         }
-        const imageElement = document.querySelector(`img[data-id="${imageId}"]`);
-        if (imageElement) {
-            const clonedImage = imageElement.cloneNode(true);
-            wishlistedContainer.appendChild(clonedImage);
-        }
     });
 }
-
 
 if (document.getElementById('wishlisted-container')) {
     displayWishlistedImages();
