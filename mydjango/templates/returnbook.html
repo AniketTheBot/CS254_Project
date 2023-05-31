@@ -8,6 +8,295 @@
 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="static/navbar.css">
     <style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+        body {
+
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background-image: linear-gradient(to right, #1B130D, #362016, #1B130D, #7B5532);
+            height: 65px;
+        }
+        
+        header a {
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            transition: 0.3s;
+        }
+        
+        .navbar {
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .navbar a {
+            position: relative;
+        }
+        
+        .navbar a::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            bottom: 4px;
+            height: 3px;
+            background: #c2e6f0;
+        
+            transition: 0.3s;
+            z-index: 1;
+        }
+        
+        .navbar a:hover::before,
+        .navbar .active::before {
+            width: 50%;
+        }
+        
+        .navbar a:hover,
+        .navbar .active {
+            color: #757575;
+        }
+        
+        header a:hover {
+            color: #757575;
+        }
+        
+        header .container-1 {
+            position: relative;
+            display: inline-block;
+            background-color: transparent;
+            padding: 0;
+            margin-right: 7px;
+            border-radius: 0px;
+            box-shadow: none;
+            overflow: none;
+        }
+        
+        header .icon {
+            display: flex;
+            flex-direction: column;
+            font-size: 32px;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        header .container-1 .dropdown-content {
+            display: none;
+            position: absolute;
+            bottom: -90px;
+            left: -50px;
+            z-index: 1; 
+            background-color: #fff;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);;
+        }
+        
+        header .container-1 .dropdown-content a{
+            color: black;
+        }
+        
+        header .container-1:hover .dropdown-content{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .Wishlist, .Logout{
+            display: flex;
+            justify-content: space-evenly;
+            gap: 7px;
+        }
+        
+        * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  body {
+    background-color: #f5f5f5;
+  }
+
+  .form-container {
+    max-width: 600px;
+    margin-left: 700px;
+    margin-top: 100px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .form-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #7B5532;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #7B5532;
+  }
+
+  input,
+  textarea {
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #f5f5f5;
+    width: 100%;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+    box-shadow: 0 0 5px #7B5532;
+  }
+
+  .file-input {
+    position: relative;
+  }
+
+  .file-input input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  .file-input span {display: inline-block;
+font-size: 1rem;
+padding: 10px;
+border-radius: 5px;
+border: none;
+background-color: #7B5532;
+color: #fff;
+cursor: pointer;
+}
+
+.file-input span:hover {
+background-color: #7B5532;
+}
+
+button {
+display: block;
+margin-top: 20px;
+padding: 10px;
+font-size: 1.2rem;
+font-weight: bold;
+text-align: center;
+border-radius: 5px;
+border: none;
+background-color: #7B5532;
+color: #fff;
+cursor: pointer;
+transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+background-color: #7B5532;
+}
+
+@media screen and (max-width: 768px) {
+.form-container {
+padding: 10px;
+}.form-group {
+  margin-bottom: 10px;
+}
+
+label {
+  font-size: 1rem;
+  margin-bottom: 3px;
+}
+
+input,
+textarea {
+  font-size: 0.9rem;
+  padding: 8px;
+}
+
+.file-input span {
+  font-size: 0.9rem;
+  padding: 8px;
+}
+
+button {
+  font-size: 1rem;
+  padding: 8px;
+}
+}
+
+		/*js-css*/
+	
+		.fa-times{
+			display: none;
+		}
+		section{
+			width: 100%;
+			height: 700px;
+			background: white;
+			display: flex;
+			justify-content: space-around;
+		}
+		.details, .image{
+			width: 50%;
+			padding: 50px;
+			font-size: 20px;
+			color: white;
+		}
+		h4, p{
+			padding: 20px;
+			margin: 20px;
+		}
+		img{
+			width: 100%;
+		}
+		@media(max-width: 768px) {
+			h4,p{
+				padding: 0;
+				margin: 0;
+				font-size: initial;
+			}
+			
+		}
+
+        .side-menu ul li a{
+			text-decoration: none;
+			color: white;
+		}
+		.side-menu ul li a:hover{
+			color: #757575;
+		}
+
+        /* <!--side menu bar-->*/
         *{
     margin: 0;
     padding: 0;
