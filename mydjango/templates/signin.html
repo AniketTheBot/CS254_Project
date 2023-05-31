@@ -20,6 +20,21 @@
         color: White;
         font-size: 15px;
     }
+        .btn-submit {
+            width: 100%;
+            border-radius: 30px;
+            height: 45px;
+            background-color: rgb(216, 216, 187);
+            cursor: pointer;
+            color: #0a0a0a;
+            font-size: 17px;
+            border: none;
+            transition: 0.3s;
+        }
+        .btn-submit:hover{
+            background-color: beige;
+            transform: translateY(-3px);
+        }
 </style>
 <body>
     <div class="box">
@@ -38,7 +53,7 @@
                     <br><br>
                 </div>
 
-                <button type="Submit" class="btn btn-primary">Log In</Button>
+                <button type="Submit" class="btn-submit">Log In</Button>
             </form>
            {% comment %} <div class="bottom">
                 <div class="left">

@@ -15,6 +15,6 @@ urlpatterns = [
     path("review",views.review,name="review"),
     path("signin",views.signin,name="signin"),
     path("userdashboard",views.userdashboard,name="userdashboard"),
-    path('activate/<uidb64>/token',views.activate,name='activate')
+    # path('activate/<uidb64>/token',views.activate,name='activate')
 
 ]

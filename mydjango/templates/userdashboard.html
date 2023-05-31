@@ -40,8 +40,8 @@
 			list-style: none;
 		}
 
-		h1,
 		h2 {
+			margin-left: 30px;
 			color: white;
 		}
 
@@ -93,6 +93,7 @@
 	<div class="side-menu">
 		<div class="brand-name">
 		</div>
+		<h2>Hello, {{username}}</h2>
 		<ul>
 			<li><a href="/userdashboard"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
 			<li><a href="/userdashboard/publishbook"><i class="fas fa-book"></i>Publish book</a></li>
@@ -113,9 +114,9 @@
 </html>
 <script type="text/javascript">
 
-	var  searchIcon = document.querySelector('.fa-search');
-	var  closeIcon = document.querySelector('.fa-times');
-	var  search = document.getElementById('search');
+	var searchIcon = document.querySelector('.fa-search');
+	var closeIcon = document.querySelector('.fa-times');
+	var search = document.getElementById('search');
 
 	searchIcon.onclick = () => {
 		search.classList.add('expand');
