@@ -383,25 +383,25 @@ h1,h2{
       
 	<!--Dasboard ends here-->
     <div class="form-container">
-        <form action="/userdashboard/publishbook" method="POST">
+        <form action="/userdashboard/publishbook" method="post">
           {% csrf_token %}
-          <label for="book-title">Book Title:</label>
-          <input type="text" id="book-title" name="book-title" required>
-      
-      <label for="authorname">Author Name:</label>
-      <input type="text" id="authorname" name="authorname" required>
-  
-      <div class="form-group">
-        <label for="ISBN">ISBN:</label>
-        <input type="text" id="ISBN" name="ISBN" required>
-      </div>
-      
-
-      
-      <label for="desc">Description:</label>
-      <textarea id="desc" name="desc" required></textarea>
-      
-      <button type="submit" id="submit-btn">Publish Book</button>
+          <div class="form-group">
+              <label for="booktitle">Book Title:</label>
+              <input type="text" id="booktitle" name="bookstitle" required>
+          </div>
+          <div class="form-group">
+              <label for="authorname">Author Name:</label>
+              <input type="text" id="authorname" name="authorname" required>
+          </div>
+          <div class="form-group">
+              <label for="ISBN">ISBN:</label>
+              <input type="text" id="ISBN" name="ISBN" required>
+          </div>
+          <div class="form-group">
+              <label for="desc">Description:</label>
+              <textarea id="desc" name="desc" required></textarea>
+          </div>
+          <button type="submit" id="submit-btn">Publish Book</button>
     </form>
   </div>
   

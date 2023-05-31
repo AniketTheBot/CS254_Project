@@ -49,8 +49,7 @@ def issuebooks(request):
         authorname = request.POST.get('authorname')
         ISBN = request.POST.get('ISBN')
 
-        issue = BookIssue(booktitle=booktitle, authorname=authorname,
-                          ISBN=ISBN, date=datetime.today())
+        issue = BookIssue(booktitle=booktitle, authorname=authorname,ISBN=ISBN, date=datetime.today())
         issue.save()
     return render(request, 'issuebooks.html')
 
@@ -63,13 +62,14 @@ def publishbook(request):
     if request.method == "POST":
         booktitle = request.POST.get('booktitle')
         authorname = request.POST.get('authorname')
-        isbn = request.POST.get('ISBN')
-        publdate = request.POST.get('publdate')
+        ISBN = request.POST.get('ISBN')
         desc = request.POST.get('desc')
+        
+        publ = BookPublish(booktitle=booktitle, authorname=authorname,desc=desc, ISBN=ISBN, publdate=datetime.today())
+        publ.save()
 
-        book = BookPublish(booktitle=booktitle, authorname=authorname, ISBN=isbn, publdate=publdate, desc=desc)
-        book.save()
-
+        #success_message = "Data submitted successfully!"
+        #return render(request, 'publishbook.html',{'success_message': success_message})
     return render(request, 'publishbook.html')
 
 
