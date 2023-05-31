@@ -1,24 +1,23 @@
 let wishlist = [];
 
-function addToWishlist(bookId) {
-    const iconElement = document.querySelector(`i[data-id="${bookId}"]`);
+function addToWishlist(itemId) {
+  const iconElement = document.querySelector(`i[data-id="${itemId}"]`);
 
-    if (!wishlist.includes(bookId)) {
-        wishlist.push(bookId);
-        localStorage.setItem('wishlist', JSON.stringify(wishlist));
-        if (iconElement) {
-            iconElement.classList.add('wishlisted');
-        }
-    } else {
-        const index = wishlist.indexOf(bookId);
-        wishlist.splice(index, 1);
-        localStorage.setItem('wishlist', JSON.stringify(wishlist));
-        if (iconElement) {
-            iconElement.classList.remove('wishlisted');
-        }
+  if (!wishlist.includes(itemId)) {
+    wishlist.push(itemId);
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    if (iconElement) {
+      iconElement.classList.add('wishlisted');
     }
+  } else {
+    const index = wishlist.indexOf(itemId);
+    wishlist.splice(index, 1);
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    if (iconElement) {
+      iconElement.classList.remove('wishlisted');
+    }
+  }
 }
-
 
 function displayWishlistedBooks() {
     const wishlistedContainer = document.getElementById('wishlisted-container');
@@ -37,5 +36,5 @@ function displayWishlistedBooks() {
 }
 
 if (document.getElementById('wishlisted-container')) {
-    displayWishlistedImages();
+    displayWishlistedBooks();
 }
